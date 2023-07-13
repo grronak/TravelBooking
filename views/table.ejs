@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Data</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      color: #333333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #dddddd;
+    }
+
+    th {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <h1>User Data</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Name</th>
+        <th>From Place</th>
+        <th>Destination</th>
+        <th>Number of Days</th>
+        <th>Number of Travelers</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i = 0; i < data.length; i++) { %>
+        <tr>
+          <td><%= data[i].userid %></td>
+          <td><%= data[i].name %></td>
+          <td><%= data[i].from_place %></td>
+          <td><%= data[i].destination %></td>
+          <td><%= data[i]['number-of-days'] %></td>
+          <td><%= data[i].num_of_travelers %></td>
+          <td>
+            <a href="/delete-book?id=<%= data[i].id %>">Delete</a>
+            <a href="/update-book?id=<%= data[i].id %>">Update</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>
